@@ -1,0 +1,255 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  --dark-space: #2d3047; /* Un azul/gris oscuro y profundo */
+  --platinum: #e0e1dd;   /* Un gris claro casi blanco para texto */
+  --accent-coral: #e27d60; /* Un coral vibrante y cálido para acentos */
+  --accent-teal: #85bdcb;  /* Un verde azulado suave y calmado */
+  --light-bg: #f9f7f3;     /* Un fondo muy claro, color crema/hueso */
+}
+
+body {
+  font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--light-bg);
+  color: var(--dark-space);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  color: var(--dark-space);
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+p, li, div {
+    line-height: 1.6;
+}
+
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.35rem;
+  color: var(--accent-teal);
+}
+
+.text-primary {
+  color: var(--accent-coral) !important;
+}
+
+a {
+  color: var(--accent-coral);
+  transition: all 0.2s ease-in-out;
+}
+a:hover, a:focus, a:active {
+  color: #c96545; /* Un coral más oscuro al pasar el cursor */
+}
+
+/*--------------------------------------------------------------
+# Side Navigation
+--------------------------------------------------------------*/
+#sideNav {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 17rem;
+  height: 100vh;
+  background-color: var(--dark-space);
+}
+#sideNav .navbar-brand {
+  display: flex;
+  margin: auto auto 0;
+  padding: 0.5rem;
+}
+#sideNav .navbar-brand .img-profile {
+  max-width: 10rem;
+  max-height: 10rem;
+  border: 0.5rem solid rgba(224, 225, 221, 0.2); /* Borde con color platinum semi-transparente */
+  transition: all 0.2s ease-in-out;
+}
+
+#sideNav .navbar-brand:hover .img-profile {
+  border: 0.5rem solid var(--accent-coral);
+  transform: scale(1.05);
+}
+
+#sideNav .navbar-collapse {
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 0;
+  width: 100%;
+  margin-bottom: auto;
+}
+#sideNav .navbar-nav {
+  flex-direction: column;
+  width: 100%;
+}
+#sideNav .navbar-nav .nav-item {
+    position: relative;
+}
+#sideNav .navbar-nav .nav-item .nav-link {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  padding: 1rem 1.5rem;
+  color: var(--platinum);
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.3rem;
+    height: 0;
+    background-color: var(--accent-coral);
+    transition: height 0.3s ease;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover:before,
+#sideNav .navbar-nav .nav-item .nav-link.active:before {
+    height: 100%;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover,
+#sideNav .navbar-nav .nav-item .nav-link.active {
+    color: white;
+    background-color: rgba(226, 125, 96, 0.1);
+}
+
+@media (max-width: 991.98px) {
+  #sideNav {
+    text-align: left;
+    height: auto;
+    width: 100%;
+  }
+  #sideNav .navbar-brand {
+    margin-left: 1rem;
+    margin-right: auto;
+  }
+  #sideNav .navbar-collapse {
+    padding-bottom: 1rem;
+  }
+  #sideNav .navbar-nav .nav-item .nav-link {
+    padding: 0.75rem 1rem;
+  }
+  #sideNav .navbar-nav .nav-item .nav-link:before {
+    display: none; /* Ocultar la barra lateral en móvil */
+  }
+}
+
+/*--------------------------------------------------------------
+# Content Sections
+--------------------------------------------------------------*/
+.container-fluid {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 17rem; /* Dejar espacio para la barra de navegación */
+}
+
+section.resume-section {
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  max-width: 75rem;
+  min-height: 100vh;
+  border-bottom: 1px solid #dee2e6;
+}
+section.resume-section:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .container-fluid {
+    padding-left: 0;
+  }
+  section.resume-section {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/*--------------------------------------------------------------
+# Specific Element Styling
+--------------------------------------------------------------*/
+.social-icons .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: var(--dark-space);
+  color: var(--light-bg);
+  border-radius: 100%;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  transition: all 0.3s ease;
+}
+.social-icons .social-icon:last-child {
+  margin-right: 0;
+}
+.social-icons .social-icon:hover {
+  background-color: var(--accent-coral);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.dev-icons {
+  padding-left: 0;
+  list-style: none;
+}
+.dev-icons .list-inline-item i {
+  font-size: 4rem;
+  color: var(--dark-space);
+  transition: all 0.3s ease;
+}
+.dev-icons .list-inline-item i:hover {
+  color: var(--accent-coral);
+  transform: scale(1.2);
+}
+
+.fa-ul .fa-li {
+    color: var(--accent-teal);
+}
+
+/* Separador horizontal personalizado */
+hr.m-0 {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--platinum), transparent);
+    margin: 4rem auto !important;
+    width: 80%;
+}
